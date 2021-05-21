@@ -1,0 +1,20 @@
+.weathercard .card{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    overflow: hidden;
+    background-color: #4b4b4b;
+    padding: 40px;
+    justify-content: center;
+}
+@media(min-width:468px){
+    .weathercard{
+        display: flex;
+        margin: auto;
+        padding: 40px;
+        background-color: #4b4b4b;
+        overflow: hidden;
+        width: 50%;
+       
+    }
+}
