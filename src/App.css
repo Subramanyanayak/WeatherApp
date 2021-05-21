@@ -1,0 +1,19 @@
+.barchart{
+    
+    margin: auto;
+    padding: 40px;
+    overflow: hidden;
+    
+    width: 80%;
+    color: white;
+}
+@media(min-width:468px){
+    .barchart{
+        
+        margin: auto;
+        padding: 40px;
+        overflow: hidden;
+        width: 50%;
+       
+    }
+}
