@@ -59,8 +59,7 @@
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("./Images/munich.jpg");
         background-size: cover;
         width: 50%;
-        height: 500px;
+        height: 360px;
         margin: auto;
-        
     }
 }
