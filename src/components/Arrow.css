@@ -2,10 +2,8 @@
     display: flex;
     margin: auto;
     align-items: center;
-    background-color: #4b4b4b;
     color: white;
     padding: 40px;
-    border-top: 1px solid yellow;
 }
 .arrow .arr1 .left{
     height: 30px;
@@ -28,10 +26,10 @@
         display: flex;
         margin: auto;
         align-items: center;
-        background-color:#4b4b4b;
+        
         color: white;
         padding: 40px;
-        border-top: 1px solid yellow;
+    
         width: 50%;
     }
 }

@@ -1,21 +1,17 @@
 .loader{
     display: flex;
-    background-color: #4b4b4b;
     align-items: center;
     justify-content: center;
     margin: auto;
     padding: 40px;
-    color: white;
 }
 @media(min-width:468px){
     .loader{
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #4b4b4b;
         margin: auto;
         width: 50%;
         padding: 40px;
-        color: white;
     }
 }

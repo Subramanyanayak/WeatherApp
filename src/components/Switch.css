@@ -2,8 +2,6 @@
     display: flex;
     margin: auto;
     align-items: center;
-    background-color: #4b4b4b;
-    color: white;
     padding: 40px;
 }
 .switch .cel{
@@ -21,8 +19,6 @@
         display: flex;
         margin: auto;
         align-items: center;
-        background-color: #4b4b4b;
-        color: white;
         padding: 40px;
         width: 50%;
     }

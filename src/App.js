@@ -14,6 +14,8 @@ function App() {
   const [data,setData] = useState({})
   let labels = [];
   let temperatures = [];
+  const [temp,setTemp] = useState()
+  const [weather,setWeather] = useState()
 
   useEffect(() =>{
     setTimeout(() => {
@@ -25,25 +27,28 @@ function App() {
       for(const obj of response.list){
         ctr++;
         let t = obj.dt_txt.split(' ')[1];
+        if(ctr<2){
+          setWeather(obj.main.temp)
+        }
        if(ctr<=8){
         labels.push(t);
        temperatures.push(obj.main.temp);
        }
       }
-    
+
       setData({ labels: labels,
         datasets: [
           {
             label: 'Weather',
             data: temperatures,
             backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
+              '#5A7CFB',
+              '#5A7CFB',
+              '#5A7CFB',
+              '#5A7CFB',
+              '#5A7CFB',
+              '#5A7CFB',
+              '#5A7CFB'
             ]
           }
         ]
@@ -60,11 +65,76 @@ function App() {
       setStatus(st);
   }
 
+  const activeTemp = (temper) => {
+    setTemp(temper);
+  }
+
   return (
     <div className="App">
-            <Switch onPassData={fetchStatus}/>
+      <div className="first">
+          <div className="title">
+          <h2 className="header">MUNICH</h2>
+          <h3 className="subheader">GERMANY</h3>
+          </div>
+          <div className="temp"> 
+              {temp?(() => {
+                <h3>{temp}</h3>
+            if (temp>288) {
+              return (
+                <div>
+                 <h3>{temp}</h3>
+                <h3>Sunny</h3>
+                </div>
+              )
+            } else if (temp>287) {
+              return (
+                <div>
+                 <h3>{temp}</h3>
+                <h3>Clouds</h3>
+              </div>
+              )
+            } else {
+              return (
+                <div>
+                 <h3>{temp}</h3>
+                <h3>Rain</h3>
+                </div>
+              )
+            }
+        })():(() => {
+          <h3>{weather}</h3>
+          if (weather>288) {
+            return (
+              <div>
+                 <h3>{weather}</h3>
+              <h3>Sunny</h3>
+              </div>
+            )
+          } else if (weather>287) {
+            return (
+              <div>
+                 <h3>{weather}</h3>
+              <h3>Clouds</h3>
+              </div>
+            )
+          } else {
+            return (
+              <div>
+                 <h3>{weather}</h3>
+              <h3>Rain</h3>
+              </div>
+            )
+          }
+      })()}
+      </div>
+          <div className="components">
+          <Switch onPassData={fetchStatus}/>
             <Arrow onPassData={fetchCtr}/>
-            {post?<WeatherCard data={post} ctr={ctr} status={status}/>:<Loader />}            
+            </div>
+      </div>
+              <div>
+            {post?<WeatherCard data={post} onPassData={activeTemp} ctr={ctr} status={status}/>:<Loader />}            
+            </div>
             <div className="barchart">
             <Bar
             data={data}
@@ -79,7 +149,7 @@ function App() {
                 position:'bottom'
               },
               responsive: true,
-          maintainAspectRatio: false
+              maintainAspectRatio: false
              }
             }
           />

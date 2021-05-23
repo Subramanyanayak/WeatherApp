@@ -1,18 +1,29 @@
 .weathercard .card{
-    display: flex;
     margin: auto;
     align-items: center;
     overflow: hidden;
-    background-color: #4b4b4b;
     padding: 40px;
     justify-content: center;
+    display: flex;
+}
+.weathercard .card .inner .content{
+    font-family: 'Roboto', sans-serif;
+}
+.weathercard .card .inner .content .sun{
+    color: #FFC107; 
+}
+.weathercard .card .inner .content .cloud{  
+    color: #87CEEB;   
+}
+.weathercard .card .inner .content .rain{
+    color: #87CEEB;
 }
 @media(min-width:468px){
     .weathercard{
         display: flex;
         margin: auto;
         padding: 40px;
-        background-color: #4b4b4b;
+    
         overflow: hidden;
         width: 50%;
        
