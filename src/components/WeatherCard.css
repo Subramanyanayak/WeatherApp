@@ -22,7 +22,7 @@
     .weathercard{
         display: flex;
         margin: auto;
-        padding: 40px;
+        padding: 10px;
     
         overflow: hidden;
         width: 50%;

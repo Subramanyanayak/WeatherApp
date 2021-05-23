@@ -27,7 +27,6 @@ const WeatherCard = (props) => {
                 let t = obj.dt_txt.split(' ')[1];
                 let cel = (obj.main.temp - 273.15).toFixed(2);
                 let type = obj.weather[0].main;
-                console.log(obj.weather[0].main)
                 ctr++;            
              if(ctr>index && ctr<=index+3)
             return( <div onClick={handleClick.bind(this, cel, type)}>

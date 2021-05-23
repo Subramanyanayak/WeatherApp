@@ -37,7 +37,7 @@ function App() {
         }
        if(ctr<=8){
         labels.push(t);
-       temperatures.push(obj.main.temp);
+       temperatures.push(parseFloat(obj.main.temp - 273.15).toFixed(2));
        }
       }
 
