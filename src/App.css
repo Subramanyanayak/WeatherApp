@@ -10,8 +10,8 @@
     background-size: cover;
     background-attachment: fixed;
     height: 400px;
-    border-bottom-left-radius:50px;
-    border-bottom-right-radius:50px;
+    border-bottom-left-radius:30px;
+    border-bottom-right-radius:30px;
     padding: 20px;
     color: white;
 }
