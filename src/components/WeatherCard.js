@@ -16,8 +16,8 @@ const WeatherCard = (props) => {
         setStatus(props.status);
     },[props.status])
 
-    const handleClick = (temp) => {
-        props.onPassData(temp);
+    const handleClick = (temp, type) => {
+        props.onPassData(temp, type);
     }
 
     return(
@@ -25,10 +25,13 @@ const WeatherCard = (props) => {
            { props.data.map(obj => {
                 let d = obj.dt_txt.split(' ')[0];
                 let t = obj.dt_txt.split(' ')[1];
+                let cel = (obj.main.temp - 273.15).toFixed(2);
+                let type = obj.weather[0].main;
+                console.log(obj.weather[0].main)
                 ctr++;            
              if(ctr>index && ctr<=index+3)
-            return( <div onClick={handleClick.bind(this, obj.main.temp)}>
-             <Card date={d} temp2={obj.main.temp} temp={status == 'cel'?parseFloat((obj.main.temp - 32)*5/9).toFixed(2) : (obj.main.temp) } time={t}/>
+            return( <div onClick={handleClick.bind(this, cel, type)}>
+             <Card date={d} icon={obj.weather[0].main} temp2={obj.main.temp} temp={status == 'cel'?parseFloat(obj.main.temp - 273.15).toFixed(2) : ((obj.main.temp - 273.15) * 9/5 + 32).toFixed(2) } time={t}/>
            </div>)
            })}
         </div>

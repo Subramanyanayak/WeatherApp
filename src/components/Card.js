@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Typography } from '@material-ui/core';
@@ -13,11 +13,11 @@ const card = (props) => {
                     <CardContent>
                         <Typography variant="body2" className="content" >
                         {(() => {
-                                if (props.temp2>288) {
+                                if (props.icon == "Clear") {
                                 return (
                                     <FontAwesomeIcon className="fas fa-camera fa-6x sun" icon={faSun}/>
                                 )
-                                } else if (props.temp2>287) {
+                                } else if (props.icon == "Clouds") {
                                 return (
                                     <FontAwesomeIcon className="fas fa-camera fa-6x cloud" icon={faCloud}/>
                                 )

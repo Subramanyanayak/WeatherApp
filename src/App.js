@@ -4,6 +4,7 @@ import Arrow from './components/Arrow'
 import WeatherCard from './components/WeatherCard'
 import Loader from './components/Loader';
 import { Bar } from 'react-chartjs-2';
+import { defaults } from 'react-chartjs-2';
 import './App.css'
 
 function App() {
@@ -14,8 +15,11 @@ function App() {
   const [data,setData] = useState({})
   let labels = [];
   let temperatures = [];
-  const [temp,setTemp] = useState()
+  const [temp,setTemp] = useState();
+  const [tempType,setTempType] = useState();
+  const [weatherType,setWeatherType] = useState()
   const [weather,setWeather] = useState()
+  defaults.font.family = 'Arial';
 
   useEffect(() =>{
     setTimeout(() => {
@@ -28,7 +32,8 @@ function App() {
         ctr++;
         let t = obj.dt_txt.split(' ')[1];
         if(ctr<2){
-          setWeather(obj.main.temp)
+          setWeather((obj.main.temp - 273.15).toFixed(2));
+          setWeatherType(obj.weather[0].main)
         }
        if(ctr<=8){
         labels.push(t);
@@ -65,8 +70,9 @@ function App() {
       setStatus(st);
   }
 
-  const activeTemp = (temper) => {
+  const activeTemp = (temper,type) => {
     setTemp(temper);
+    setTempType(type);
   }
 
   return (
@@ -77,62 +83,24 @@ function App() {
           <h3 className="subheader">GERMANY</h3>
           </div>
           <div className="temp"> 
-              {temp?(() => {
-                <h3>{temp}</h3>
-            if (temp>288) {
-              return (
-                <div>
-                 <h3>{temp}</h3>
-                <h3>Sunny</h3>
-                </div>
-              )
-            } else if (temp>287) {
-              return (
-                <div>
-                 <h3>{temp}</h3>
-                <h3>Clouds</h3>
-              </div>
-              )
-            } else {
-              return (
-                <div>
-                 <h3>{temp}</h3>
-                <h3>Rain</h3>
-                </div>
-              )
-            }
-        })():(() => {
-          <h3>{weather}</h3>
-          if (weather>288) {
-            return (
+              {temp?
               <div>
-                 <h3>{weather}</h3>
-              <h3>Sunny</h3>
-              </div>
-            )
-          } else if (weather>287) {
-            return (
+              <h3>{temp} <span>&#8451;</span></h3>
+              <h3>{tempType}</h3>
+           </div>
+              : 
               <div>
-                 <h3>{weather}</h3>
-              <h3>Clouds</h3>
+                 <h3>{weather} <span>&#8451;</span></h3>
+                 <h3>{weatherType}</h3>
               </div>
-            )
-          } else {
-            return (
-              <div>
-                 <h3>{weather}</h3>
-              <h3>Rain</h3>
-              </div>
-            )
-          }
-      })()}
+      }
       </div>
           <div className="components">
           <Switch onPassData={fetchStatus}/>
             <Arrow onPassData={fetchCtr}/>
-            </div>
-      </div>
-              <div>
+          </div>
+         </div>
+          <div>
             {post?<WeatherCard data={post} onPassData={activeTemp} ctr={ctr} status={status}/>:<Loader />}            
             </div>
             <div className="barchart">
