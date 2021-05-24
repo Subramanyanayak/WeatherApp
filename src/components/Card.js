@@ -27,7 +27,7 @@ const card = (props) => {
                                 )
                                 }
         })()}
-                        <div>
+                        <div className="description">
                         Temp:
                         {props.temp}
                         </div>

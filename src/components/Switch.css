@@ -7,9 +7,6 @@
 .switch .cel{
     flex: 3;
 }
-.switch .fah{
-    flex: 2;
-}
 .radio{
     width: 20px;
     height: 20px;

@@ -12,11 +12,12 @@ const Switch = (props) => {
     return(
         <div className="switch">
             <div className="cel">
-            <input type="radio" className="radio" name="switch" value="Celcius" onChange={() => setStatus("cel")}></input><label>Celcius</label>
+            <input type="radio" id="cel" className="radio" name="switch" value="Celcius" onChange={() => setStatus("cel")}></input><label>Celcius</label>
             </div>
             <div className="fah">
-            <input type="radio" className="radio" name="switch" value="Fahrenheit" onChange={() => setStatus("fah")}></input><label>Fahrenheit</label>
+            <input type="radio" id="fah" className="radio" name="switch" value="Fahrenheit" onChange={() => setStatus("fah")}></input><label>Fahrenheit</label>
             </div>
+    
         </div>
     )
 }
