@@ -5,10 +5,10 @@
     padding: 40px;
 }
 .switch .cel{
-    flex: 5;
+    flex: 3;
 }
 .switch .fah{
-    flex: 1;
+    flex: 2;
 }
 .radio{
     width: 20px;
