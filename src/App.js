@@ -35,6 +35,7 @@ function App() {
           setWeather((obj.main.temp - 273.15).toFixed(2));
           setWeatherType(obj.weather[0].main)
         }
+
        if(ctr<=8){
         labels.push(t);
        temperatures.push(parseFloat(obj.main.temp - 273.15).toFixed(2));
