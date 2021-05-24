@@ -3,7 +3,7 @@ import './Switch.css'
 
 const Switch = (props) => {
 
-    const [status,setStatus] = useState()
+    const [status,setStatus] = useState("fah")
     
     useEffect(() => {
             props.onPassData(status);
@@ -15,7 +15,7 @@ const Switch = (props) => {
             <input type="radio" id="cel" className="radio" name="switch" value="Celcius" onChange={() => setStatus("cel")}></input><label>Celcius</label>
             </div>
             <div className="fah">
-            <input type="radio" id="fah" className="radio" name="switch" value="Fahrenheit" onChange={() => setStatus("fah")}></input><label>Fahrenheit</label>
+            <input type="radio" id="fah" className="radio" name="switch" checked={status == "fah"} value="Fahrenheit" onChange={() => setStatus("fah")}></input><label>Fahrenheit</label>
             </div>
     
         </div>
