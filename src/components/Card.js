@@ -28,16 +28,13 @@ const card = (props) => {
                                 }
         })()}
                         <div className="description">
-                        Temp:
-                        {props.temp}
+                        Temp:&nbsp;{props.temp}
                         </div>
                         <div>
-                        Date:
-                        {props.date}
+                        Date:&nbsp;{props.date}
                         </div>
                         <div>
-                        time: 
-                        {props.time}
+                        time:&nbsp;{props.time}
                         </div>
                         </Typography>
                     </CardContent>

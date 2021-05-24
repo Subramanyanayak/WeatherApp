@@ -26,10 +26,8 @@
         display: flex;
         margin: auto;
         align-items: center;
-        
         color: white;
         padding: 40px;
-    
         width: 50%;
     }
 }
